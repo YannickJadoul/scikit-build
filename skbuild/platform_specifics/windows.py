@@ -319,8 +319,9 @@ def _get_msvc_compiler_env(vs_version, vs_toolset=None):
                 'cmd /u /c "{}" {} {} && set'.format(vcvarsall, arch, vcvars_ver),
                 stderr=subprocess.STDOUT,
             )
-            if sys.version_info[0] >= 3:
-                out = out.decode('utf-16le', errors='replace')
+            out = out.decode('utf-16le', errors='replace')
+            if sys.version_info[0] < 3:
+                out = out.encode('utf-8')
 
             vc_env = {
                 key.lower(): value
