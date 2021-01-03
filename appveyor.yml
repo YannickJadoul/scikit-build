@@ -58,6 +58,9 @@ cache:
   - C:\\cmake-3.6.2
 
 init:
+  # Use any modern Python version to setup, since the VS 2017 image
+  # does not have Visual C++ Compiler for Python 2.7 installed
+  - set PATH=C:\\Python38;C:\\Python38\\Scripts;%PATH%
   - python -m pip install -U scikit-ci scikit-ci-addons
   - python -m ci_addons --install ../addons
 
