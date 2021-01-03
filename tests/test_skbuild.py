@@ -174,7 +174,7 @@ def test_invalid_generator(generator_args):
 
 
 @pytest.mark.parametrize(
-    "vs_year", ["2008", "2010", "2012", "2013", "2015", "2017"]
+    "vs_year", ["2008", "2010", "2012", "2013", "2015", "2017", "2019"]
 )
 def test_platform_windows_find_visual_studio(vs_year):
     """If the environment variable ``SKBUILD_TEST_FIND_VS<vs_year>_INSTALLATION_EXPECTED`` is set,

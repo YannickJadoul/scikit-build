@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runs-on: [ubuntu-latest, macos-latest, windows-2016]
+        runs-on: [ubuntu-latest, macos-latest, windows-2016, windows-latest]
 
     name: Tests on ${{ matrix.runs-on }}
     steps:
@@ -38,6 +38,16 @@ jobs:
         echo "SKBUILD_TEST_FIND_VS2012_INSTALLATION_EXPECTED=0" >> $GITHUB_ENV
         echo "SKBUILD_TEST_FIND_VS2015_INSTALLATION_EXPECTED=1" >> $GITHUB_ENV
         echo "SKBUILD_TEST_FIND_VS2017_INSTALLATION_EXPECTED=1" >> $GITHUB_ENV
+
+    - name: Set environment for available GHA MSVCs
+      if: matrix.runs-on == 'windows-2016'
+      run: |
+        echo "SKBUILD_TEST_FIND_VS2019_INSTALLATION_EXPECTED=0" >> $GITHUB_ENV
+
+    - name: Set environment for available GHA MSVCs
+      if: matrix.runs-on == 'windows-latest'
+      run: |
+        echo "SKBUILD_TEST_FIND_VS2019_INSTALLATION_EXPECTED=1" >> $GITHUB_ENV
 
     - name: Setup nox
       uses: excitedleigh/setup-nox@v2.0.0
