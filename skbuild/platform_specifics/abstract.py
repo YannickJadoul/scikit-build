@@ -66,6 +66,13 @@ class CMakePlatform(object):
 
         return CMakeGenerator(generator_name)
 
+    def get_generators(self, generator_name):
+        """Loop over generators and return all that match the given name.
+        """
+        return [default_generator
+                for default_generator in self.default_generators
+                if default_generator.name == generator_name]
+
     # TODO: this method name is not great.  Does anyone have a better idea for
     # renaming it?
     def get_best_generator(
