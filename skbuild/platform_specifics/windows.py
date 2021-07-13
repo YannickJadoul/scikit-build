@@ -60,7 +60,7 @@ class WindowsPlatform(abstract.CMakePlatform):
 
         # For Python 3.5: VS2019, VS2017, VS2015
         elif version.major == 3 and version.minor == 5:
-            supported_vs_years = [("2019", "v140"), ("2017", "v140"), ("2015", None)]
+            supported_vs_years = [("2019", "v142"), ("2017", "v141"), ("2015", None)]
             self._vs_help = vs_help_template % (
                 supported_vs_years[0][0],
                 "Visual Studio 2015",
