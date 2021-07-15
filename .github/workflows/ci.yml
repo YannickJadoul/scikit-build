@@ -59,8 +59,6 @@ jobs:
     - name: Test on 🐍 2.7
       if: runner.os != 'Windows'
       run: nox --forcecolor -s tests-2.7
-    - name: Test on 🐍 3.5
-      run: nox --forcecolor -s tests-3.5
     - name: Test on 🐍 3.6
       if: runner.os == 'Linux'
       run: nox --forcecolor -s tests-3.6
@@ -72,6 +70,8 @@ jobs:
       run: nox --forcecolor -s tests-3.8
     - name: Test on 🐍 3.9
       run: nox --forcecolor -s tests-3.9
+    - name: Test on 🐍 3.5
+      run: nox --forcecolor -s tests-3.5
 
 
   dist:
